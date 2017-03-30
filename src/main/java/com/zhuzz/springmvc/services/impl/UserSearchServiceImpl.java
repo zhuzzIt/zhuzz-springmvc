@@ -1,7 +1,7 @@
-package com.zhuzz.springmvc.services.read.impl;
+package com.zhuzz.springmvc.services.impl;
 
 import com.zhuzz.springmvc.bean.User;
-import com.zhuzz.springmvc.services.read.UserSearchService;
+import com.zhuzz.springmvc.services.UserSearchService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -18,6 +18,7 @@ public class UserSearchServiceImpl implements UserSearchService {
         User user = new User();
         user.setUsername(username);
         user.setNickname("黑狼");
+        user.setPassword("123456");
         user.setUid(1L);
         return user;
     }
