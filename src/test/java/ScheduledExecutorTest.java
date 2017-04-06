@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by h3ilang on 2017/3/8.
  */
-public class Test {
+public class ScheduledExecutorTest {
     public static void main(String[] args) throws InterruptedException {
 
         ScheduledExecutorService exec = Executors.newScheduledThreadPool(2);

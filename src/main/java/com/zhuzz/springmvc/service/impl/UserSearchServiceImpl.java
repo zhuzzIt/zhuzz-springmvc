@@ -1,7 +1,7 @@
-package com.zhuzz.springmvc.services.impl;
+package com.zhuzz.springmvc.service.impl;
 
 import com.zhuzz.springmvc.bean.User;
-import com.zhuzz.springmvc.services.UserSearchService;
+import com.zhuzz.springmvc.service.UserSearchService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

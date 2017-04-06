@@ -1,4 +1,4 @@
-package com.zhuzz.springmvc.services;
+package com.zhuzz.springmvc.service;
 
 import com.zhuzz.springmvc.bean.User;
 
