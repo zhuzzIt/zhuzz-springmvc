@@ -19,11 +19,14 @@
     <script type="text/javascript" src="/js/common/jquery/jquery-3.2.0.min.js" ></script>
     <script type="text/javascript">
         $(function () {
-            alert(111);
+            $("#logoutBtn").click(function () {
+               window.location = "/v1/logout"
+            });
         });
     </script>
 </head>
 <body>
+<input type="button" value="退出" id="logoutBtn"/>
 <h1>hi,${nickname},欢迎!</h1>
 <h2>basePath:<%=basePath %></h2>
 </body>

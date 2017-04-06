@@ -27,6 +27,9 @@
         <tr>
             <td><input type="submit" value="登录"/></td>
         </tr>
+        <tr>
+            <td>${loginErrMsg}</td>
+        </tr>
         </tbody>
     </table>
 </form>

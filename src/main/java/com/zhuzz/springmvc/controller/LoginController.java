@@ -30,12 +30,17 @@ public class LoginController extends BaseController {
             modelAndView.setViewName("main");
         } else {
             modelAndView.setViewName("login");
+            modelAndView.addObject("loginErrMsg","密码错误，密码是"+ user.getPassword());
         }
         return modelAndView;
     }
 
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public ModelAndView page() {
+        return new ModelAndView("login");
+    }
+    @RequestMapping(value = "logout",method = RequestMethod.GET)
+    public ModelAndView logout(){
         return new ModelAndView("login");
     }
 }
