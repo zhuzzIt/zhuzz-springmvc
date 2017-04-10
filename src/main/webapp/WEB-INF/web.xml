@@ -6,7 +6,7 @@
 <display-name>Archetype Created Web Application</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring.xml</param-value>
+        <param-value>classpath:spring.xml,classpath:spring-security.xml</param-value>
     </context-param>
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -20,17 +20,27 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
     <filter>
         <filter-name>commonsRequestLoggingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CommonsRequestLoggingFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>encodingFilter</filter-name>
-        <url-pattern>/</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
         <filter-name>commonsRequestLoggingFilter</filter-name>
         <url-pattern>/</url-pattern>
+    </filter-mapping>
+    <!-- Spring Secutiry4.1的过滤器链配置 -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <listener>
@@ -46,7 +56,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>WEB-INF/springmvc-servlet.xml</param-value>
+            <param-value>classpath:springmvc-servlet.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
