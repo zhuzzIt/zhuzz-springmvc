@@ -5,9 +5,17 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security.xsd">
-    <debug/>
-    <http security="none" pattern="/page/login.jsp"/>
-    <http security="none" pattern="/js/**"/>
-    <http use-expressions="true" auto-config="true"/>
-
+<user-service id="userService">
+    <user name="user1" password="123456" authorities="ROLE_USER"/>
+    <user name="user2" password="123456" authorities="ROLE_USER,ROLE_EDITOR"/>
+</user-service>
+    <authentication-manager>
+        <authentication-provider user-service-ref="userService"/>
+    </authentication-manager>
+    <http pattern="/js/**" security="none"/>
+    <http pattern="/favicon.do" security="none"/>
+    <http auto-config="true">
+        <intercept-url pattern="/**" access="ROLE_USER"/>
+        <form-login login-page="/page/login.jsp" authentication-failure-url="/login.js?login_error"/>
+    </http>
 </beans:beans>
